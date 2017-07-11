@@ -219,7 +219,8 @@ class Admin:
     async def say(self, ctx, *, text):
         """Bot repeats what you tell it to, utility for scheduler."""
         channel = ctx.message.channel
-        await self.bot.send_message(channel, text)
+        em = discord.Embed(description=text)
+        await self.bot.send_message(channel, embed=em)
 
     @commands.group(no_pm=True, pass_context=True, invoke_without_command=True)
     async def selfrole(self, ctx, *, rolename):
